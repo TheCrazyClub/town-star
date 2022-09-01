@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import { Tree } from 'react-tree-graph'
+import 'react-tree-graph/dist/style.css'
+import All_Items from './files/All_Items'
+import {get_children} from './files/craft-requirement'
 import './App.css';
 
 function App() {
+  let data = {
+    name: 'Parent',
+    children: [{
+      name: 'Child One'
+    }, {
+      name: 'Child Two'
+    }]
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <All_Items/>
+
+      <Tree
+          data={get_children("Baguette", 10)}
+          nodeRadius={15}
+          margins={{ top: 20, bottom: 10, left: 20, right: 200 }}
+          height={900}
+          width={1000}/>
     </div>
   );
 }
