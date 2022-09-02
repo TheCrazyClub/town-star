@@ -127,6 +127,11 @@ export const crafts =  {
         "Wheat": 2,
         "Wood": 1
      },
+     "Food Parcel": {
+        "Baguette": 3,
+        "Jam": 2,
+        "Honey": 1
+     },
     "Gasoline": {
         "Petroleum": 1,
         "Water_Drum": 2,
