@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 export default function All_Items({setCraft, setCount}) {
   return (
     <Grid container>
-        <Grid item xs={4}>
+        <Grid item xs>
             <Autocomplete
             disablePortal
             id="combo-box-demo"
@@ -16,7 +16,7 @@ export default function All_Items({setCraft, setCount}) {
             renderInput={(params) => <TextField {...params} label="Craft"/>}
             />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs>
             <TextField 
             id="outlined-basic" 
             label= "count" 
