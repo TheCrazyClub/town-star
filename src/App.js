@@ -1,7 +1,5 @@
-import { Tree } from 'react-tree-graph'
 import 'react-tree-graph/dist/style.css'
 import All_Items from './files/All_Items'
-import { calculate_total_count, get_craft_tree } from './files/craft-requirement'
 import './App.css';
 import { useState } from 'react';
 import Box from '@mui/material/Box';
@@ -9,11 +7,15 @@ import Grid from '@mui/material/Grid';
 import Popover from '@mui/material/Popover';
 import BasicTable from './files/craft-table'
 import Paper from '@mui/material/Paper';
+import Switch from '@mui/material/Switch';
+import HierarchyTreeGraph from './files/hierarchy-tree-graph'
+import TreeGraph from './files/tree-graph'
 
 function App() {
   const [ craft , setCraft ] = useState(null)
   const [ count , setCount ] = useState(1)
   const [anchorEl, setAnchorEl] = useState(null);
+  const [ toggle , setToggle ] = useState(false)
   const [ totalCount , setTotalCount ] = useState({})
 
   const open = Boolean(anchorEl);
@@ -22,13 +24,6 @@ function App() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const handleClick = (event, node) => {
-    setAnchorEl(event.currentTarget);
-    var item = node.split("(")[0]
-    var count = parseInt(node.split("(")[1].split(")")[0])
-    setTotalCount(calculate_total_count(item, count))
-  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -39,6 +34,14 @@ function App() {
           setCount={setCount}/>
         </Grid>
         <Grid item xs={12}>
+        <Switch
+            checked={toggle}
+            onChange={() => setToggle(!toggle)}
+            name="loading"
+            color="primary"
+          />
+        </Grid>
+        <Grid item xs={12} style={{height: 800}}>
           <Popover
             id={id}
             open={open}
@@ -51,16 +54,10 @@ function App() {
           >
             <Paper sx={{ p: 2 }}><BasicTable totalCount={totalCount} /></Paper>
           </Popover>
-          {craft !==null? <Tree
-              data={get_craft_tree(craft, count)}
-              nodeRadius={15}
-              gProps={{
-                className: 'node',
-                onClick: handleClick
-                   }}
-              margins={{ top: 20, bottom: 10, left: 20, right: 200 }}
-              height={900}
-              width={1000}/> : <div/>}
+          { craft !== null ? 
+            toggle ?
+            <HierarchyTreeGraph count={count} craft={craft}/>
+            : <TreeGraph count={count} craft={craft} setAnchorEl={setAnchorEl} setTotalCount={setTotalCount}/> : <div/>}
         </Grid>
       </Grid>
     </Box>
