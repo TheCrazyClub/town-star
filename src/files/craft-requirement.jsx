@@ -38,7 +38,7 @@ const items_json =  {
     },
     "Cake": {
         "Batter": 3,
-        "Sugar": 10,
+        "Sugar": 6,
         "Energy": 3
      },
     "Candy_Canes": {
@@ -205,8 +205,8 @@ const items_json =  {
     },
     "Pumpkin_Pie": { 
         "Pumpkin": 6,
-        "Sugar": 10,
-        "Eggs": 5
+        "Sugar": 5,
+        "Eggs": 10
     },
     "Salt": {
         "Brine": 4,
@@ -230,11 +230,11 @@ const items_json =  {
         "Wood": 1
     },
     "Sugar": {
-        "Sugarcane": 6,
-        "Wood": 2
+        "Sugarcane": 3,
+        "Wood": 1
      },
     "Sugarcane": { 
-        "Water": 8
+        "Water": 4
     },
     "Uniforms": { 
         "Cotton_Yarn": 3,
@@ -298,7 +298,7 @@ export function get_all_items() {
 export function get_children(item, parent_value) {
     if (items_json[item] === null)
         return
-
+    //console.log(item + ":" + parent_value)
     var children = []
     Object.entries(items_json[item]).forEach(function([key, child_value]){
         var children_value = get_children(key, parent_value * child_value)
@@ -312,4 +312,10 @@ export function get_children(item, parent_value) {
         textProps: {x: -25, y: 12},
         children
     }
+}
+
+export function get_child(item, parent_value) {
+    if (items_json[item] === null)
+        return
+    
 }
