@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/town-star/static/css/main.b3a80e39.css",
-    "main.js": "/town-star/static/js/main.6ce33f5c.js",
+    "main.js": "/town-star/static/js/main.7ef49293.js",
     "static/js/787.ebc0bc8b.chunk.js": "/town-star/static/js/787.ebc0bc8b.chunk.js",
     "index.html": "/town-star/index.html",
     "main.b3a80e39.css.map": "/town-star/static/css/main.b3a80e39.css.map",
-    "main.6ce33f5c.js.map": "/town-star/static/js/main.6ce33f5c.js.map",
+    "main.7ef49293.js.map": "/town-star/static/js/main.7ef49293.js.map",
     "787.ebc0bc8b.chunk.js.map": "/town-star/static/js/787.ebc0bc8b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b3a80e39.css",
-    "static/js/main.6ce33f5c.js"
+    "static/js/main.7ef49293.js"
   ]
 }
