@@ -1,5 +1,5 @@
 import Autocomplete from '@mui/material/Autocomplete';
-import {get_all_items} from './craft-requirement'
+import { get_all_items_new } from './craft-requirement'
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 
@@ -27,4 +27,4 @@ export default function All_Items({setCraft, setCount}) {
   );
 }
 
-const all_crafts = get_all_items()
+const all_crafts = get_all_items_new()
